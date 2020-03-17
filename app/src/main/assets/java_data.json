@@ -1,0 +1,265 @@
+{
+  "if-else": [
+    {
+      "title1": "Java if Statement\n",
+      "title2": "Java if-else Statement\n",
+      "title3": "Java if-else-if ladder Statement\n",
+      "title4": "Java Nested if statement\n",
+      "title5": "",
+      "exp1": "The Java if statement tests the condition. It executes the if block if condition is true.\n\nExample:",
+      "code1": "//Java Program to demonstrate the use of if statement.  \npublic class IfExample {  \npublic static void main(String[] args) {  \n    //defining an 'age' variable  \n    int age=20;  \n    //checking the age  \n    if(age>18){  \n        System.out.print(\"Age is greater than 18\");  \n    }  \n}  \n}  ",
+      "exp2": "The Java if-else statement also tests the condition. It executes the if block if condition is true otherwise else block is executed.\n\nExample:",
+      "code2": "//A Java Program to demonstrate the use of if-else statement.  \n//It is a program of odd and even number.  \npublic class IfElseExample {  \npublic static void main(String[] args) {  \n    //defining a variable  \n    int number=13;  \n    //Check if the number is divisible by 2 or not  \n    if(number%2==0){  \n        System.out.println(\"even number\");  \n    }else{  \n        System.out.println(\"odd number\");  \n    }  \n}  \n}  ",
+      "exp3": "The if-else-if ladder statement executes one condition from multiple statements.\n\nExample:",
+      "code3": "//Java Program to demonstrate the use of If else-if ladder.  \n//It is a program of grading system for fail, D grade, C grade, B grade, A grade and A+.  \npublic class IfElseIfExample {  \npublic static void main(String[] args) {  \n    int marks=65;  \n      \n    if(marks<50){  \n        System.out.println(\"fail\");  \n    }  \n    else if(marks>=50 && marks<60){  \n        System.out.println(\"D grade\");  \n    }  \n    else if(marks>=60 && marks<70){  \n        System.out.println(\"C grade\");  \n    }  \n    else if(marks>=70 && marks<80){  \n        System.out.println(\"B grade\");  \n    }  \n    else if(marks>=80 && marks<90){  \n        System.out.println(\"A grade\");  \n    }else if(marks>=90 && marks<100){  \n        System.out.println(\"A+ grade\");  \n    }else{  \n        System.out.println(\"Invalid!\");  \n    }  \n}  \n}  ",
+      "exp4": "The nested if statement represents the if block within another if block. Here, the inner if block condition executes only when outer if block condition is true.\n\nExample:",
+      "code4": "//Java Program to demonstrate the use of Nested If Statement.  \npublic class JavaNestedIfExample {    \npublic static void main(String[] args) {    \n    //Creating two variables for age and weight  \n    int age=20;  \n    int weight=80;    \n    //applying condition on age and weight  \n    if(age>=18){    \n        if(weight>50){  \n            System.out.println(\"You are eligible to donate blood\");  \n        }    \n    }    \n}}  ",
+      "exp5": "",
+      "code5": ""
+    }
+  ],
+  "switch": [
+    {
+      "title1": "Java Switch Statement\n",
+      "exp1": "The Java switch statement executes one statement from multiple conditions. It is like if-else-if ladder statement. The switch statement works with byte, short, int, long, enum types, String and some wrapper types like Byte, Short, Int, and Long. Since Java 7, you can use strings in the switch statement.\n\nIn other words, the switch statement tests the equality of a variable against multiple values.\n\nExample:",
+      "code1": "public class MyClass {\n  public static void main(String[] args) {\n    int day = 4;\n    switch (day) {\n      case 1:\n        System.out.println(\"Monday\");\n        break;\n      case 2:\n        System.out.println(\"Tuesday\");\n        break;\n      case 3:\n        System.out.println(\"Wednesday\");\n        break;\n      case 4:\n        System.out.println(\"Thursday\");\n        break;\n      case 5:\n        System.out.println(\"Friday\");\n        break;\n      case 6:\n        System.out.println(\"Saturday\");\n        break;\n      case 7:\n        System.out.println(\"Sunday\");\n        break;\n    }\n  }\n}\n",
+      "title2": "Nested-Switch Statement:\n",
+      "exp2": "Nested-Switch statements refers to Switch statements inside of another Switch Statements.\n\nExample:",
+      "code2": "\npublic class Main {\n\n  public static void main(String[] args) {\n    int i = 0;\n    switch (i) {\n    case 0:\n      int j = 1;\n      switch (j) {\n      case 0:\n        System.out.println(\"i is 0, j is 0\");\n        break;\n      case 1:\n        System.out.println(\"i is 0, j is 1\");\n        break;\n      default:\n        System.out.println(\"nested default case!!\");\n      }\n      break;\n    default:\n      System.out.println(\"No matching case found!!\");\n    }\n  }\n}",
+      "exp3": "",
+      "code3": "",
+      "exp4": "",
+      "code4": "",
+      "exp5": "",
+      "code5": ""
+    }
+  ],
+  "for Loop": [
+    {
+      "title1": "Java Simple For Loop\n",
+      "title2": "Java Nested For Loop\n",
+      "title3": "Java for-each Loop\n",
+      "title4": "Java Labeled For Loop\n",
+      "title5": "",
+      "exp1": "A simple for loop is the same as C/C++. We can initialize the variable, check condition and increment/decrement value.\n\nExample:",
+      "exp2": "If we have a for loop inside the another loop, it is known as nested for loop. The inner loop executes completely whenever outer loop executes.\n\nExample:",
+      "exp3": "The for-each loop is used to traverse array or collection in java. It is easier to use than simple for loop because we don't need to increment value and use subscript notation.\n\nExample:",
+      "exp4": "We can have a name of each Java for loop. To do so, we use label before the for loop. It is useful if we have nested for loop so that we can break/continue specific for loop.\n\nExample:",
+      "exp5": "",
+      "code1": "//Java Program to demonstrate the example of for loop  \n//which prints table of 1  \npublic class ForExample {  \npublic static void main(String[] args) {  \n    //Code of Java for loop  \n    for(int i=1;i<=10;i++){  \n        System.out.println(i);  \n    }  \n}  \n}  ",
+      "code2": "public class NestedForExample {  \npublic static void main(String[] args) {  \n//loop of i  \nfor(int i=1;i<=3;i++){  \n//loop of j  \nfor(int j=1;j<=3;j++){  \n        System.out.println(i+\" \"+j);  \n}//end of i  \n}//end of j  \n}  \n}  ",
+      "code3": "//Java For-each loop example which prints the  \n//elements of the array  \npublic class ForEachExample {  \npublic static void main(String[] args) {  \n    //Declaring an array  \n    int arr[]={12,23,44,56,78};  \n    //Printing array using for-each loop  \n    for(int i:arr){  \n        System.out.println(i);  \n    }  \n}  \n}  ",
+      "code4": "//A Java program to demonstrate the use of labeled for loop  \npublic class LabeledForExample {  \npublic static void main(String[] args) {  \n    //Using Label for outer and for loop  \n    aa:  \n        for(int i=1;i<=3;i++){  \n            bb:  \n                for(int j=1;j<=3;j++){  \n                    if(i==2&&j==2){  \n                        break aa;  \n                    }  \n                    System.out.println(i+\" \"+j);  \n                }  \n        }  \n}  \n}  ",
+      "code5": ""
+    }
+  ],
+  "while loop": [
+    {
+      "title1": "Java While Loop\n",
+      "title2": "Java do...while Loop\n",
+      "title3": "",
+      "title4": "",
+      "title5": "",
+      "exp1": "The while loop loops through a block of code as long as a specified condition is true:\n\nExample:",
+      "exp2": "The do...while loop is similar to while loop with one key difference. The body of do...while loop is executed for once before the test expression is checked.\n\nExample:",
+      "exp3": "",
+      "exp4": "",
+      "exp5": "",
+      "code1": "// Program to print line 10 times\npublic class Loop {\n   public static void main(String[] args) {\n      \n      int i = 1;\n\t   \n      while (i <= 10) {\n         System.out.println(\"Line \" + i);\n         ++i;\n      }\n   }\n}",
+      "code2": "public class MyClass {\n  public static void main(String[] args) {\n    int i = 0;\n    do {\n      System.out.println(i);\n      i++;\n    }\n    while (i < 5);  \n  }\n}\n",
+      "code3": "",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "break": [
+    {
+      "title1": "Java Break Statement\n",
+      "title2": "Java Break Statement with Inner Loop\n",
+      "title3": "Java Break Statement with Labeled For Loop\n",
+      "title4": "",
+      "title5": "",
+      "exp1": "When a break statement is encountered inside a loop, the loop is immediately terminated and the program control resumes at the next statement following the loop.\n\nThe Java break is used to break loop or switch statement. It breaks the current flow of the program at specified condition. In case of inner loop, it breaks only inner loop.\n\nWe can use Java break statement in all types of loops such as for loop, while loop and do-while loop.\n\nExample:",
+      "exp2": "It breaks inner loop only if you use break statement inside the inner loop.\n\nExample:",
+      "exp3": "We can use break statement with a label. This feature is introduced since JDK 1.5. So, we can break any loop in Java now whether it is outer loop or inner.\n\nExample:",
+      "exp4": "",
+      "exp5": "",
+      "code1": "//Java Program to demonstrate the use of break statement    \n//inside the for loop.  \npublic class BreakExample {  \npublic static void main(String[] args) {  \n    //using for loop  \n    for(int i=1;i<=10;i++){  \n        if(i==5){  \n            //breaking the loop  \n            break;  \n        }  \n        System.out.println(i);  \n    }  \n}  \n}  ",
+      "code2": "//Java Program to illustrate the use of break statement    \n//inside an inner loop   \npublic class BreakExample2 {  \npublic static void main(String[] args) {  \n            //outer loop   \n            for(int i=1;i<=3;i++){    \n                    //inner loop  \n                    for(int j=1;j<=3;j++){    \n                        if(i==2&&j==2){    \n                      break;    \n                        }    \n           \tSystem.out.println(i+\" \"+j);    \n                    }    \n            }    \n}  \n}  ",
+      "code3": "//Java Program to illustrate the use of continue statement  \n//with label inside an inner loop to break outer loop  \npublic class BreakExample3 {  \npublic static void main(String[] args) {  \n        aa:  \n        for(int i=1;i<=3;i++){    \n            bb:  \n            for(int j=1;j<=3;j++)\n            {    \n                if(i==2&&j==2)\n                {    \n              //using break statement with label  \n                break aa;    \n                }    \n                System.out.println(i+\" \"+j);    \n            }    \n        }    \n    }  \n}  ",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "continue": [
+    {
+      "title1": "Java Continue\n",
+      "title2": "",
+      "title3": "",
+      "title4": "",
+      "title5": "",
+      "exp1": "The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.\n\nExample:",
+      "exp2": "",
+      "exp3": "",
+      "exp4": "",
+      "exp5": "",
+      "code1": "public class Test {\n   public static void main(String[] args) {\n      \n      for (int i = 1; i <= 10; ++i) {      \n         if (i > 4 && i < 9) {\n            continue;\n         }      \n         System.out.println(i);\n      }   \n   }\n}",
+      "code2": "",
+      "code3": "",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "Classes and Object": [
+    {
+      "title1": "Java Class\n",
+      "title2": "Java Object\n",
+      "title3": "Multiple Objects\n",
+      "title4": "",
+      "title5": "",
+      "exp1": "A class is a blueprint or we can say it is a user-defined datatype in which we can specify member functions and declare member variables. These variables in Java are known as ‘instances’ of classes which actually are the ‘objects’.\nTo create a class, use the keyword class:\n\nExample: MyClass.java",
+      "exp2": "In Java, an object is created from a class. We have already created the class named MyClass, so now we can use this to create objects.\n\nTo create an object of MyClass, specify the class name, followed by the object name, and use the keyword new:\n\nExample:",
+      "exp3": "You can create multiple objects of one class:\n\nExample:",
+      "exp4": "",
+      "exp5": "",
+      "code1": "public class MyClass {\n  int x = 5;\n\n  public static void main(String[] args) {\n        //main method is required to run program\n    }\n}\n",
+      "code2": "public class MyClass {\n  int x = 5;\n\n  public static void main(String[] args) {\n    MyClass myObj = new MyClass();\n    System.out.println(myObj.x);\n  }\n}",
+      "code3": "public class MyClass {\n  int x = 5;\n\n  public static void main(String[] args) {\n    MyClass myObj1 = new MyClass();  // Object 1\n    MyClass myObj2 = new MyClass();  // Object 2\n    System.out.println(myObj1.x);\n    System.out.println(myObj2.x);\n  }\n}",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "Methods": [
+    {
+      "title1": "Standard Library Methods",
+      "title2": "User-defined Method",
+      "title3": "Java Methods with Arguments and Return Value",
+      "title4": "",
+      "title5": "",
+      "exp1": "The standard library methods are built-in methods in Java that are readily available for use. These standard libraries come along with the Java Class Library (JCL) in a Java archive (*.jar) file with JVM and JRE.\n\nFor example,\n\nprint() is a method of java.io.PrintSteam. The print(\"...\") prints the string inside quotation marks.\nsqrt() is a method of Math class. It returns square root of a number.\n\nExample:",
+      "exp2": "You can also define methods inside a class as per your wish. Such methods are called user-defined methods.\n\nHow to create a user-defined method?\nBefore you can use (call a method), you need to define it.\n\nExample:",
+      "exp3": "A Java method can have zero or more parameters. And, they may return a value.\n\nExample:",
+      "exp4": "",
+      "exp5": "",
+      "code1": "public class Numbers {\n    public static void main(String[] args) {\n        System.out.print(\"Square root of 4 is: \" + Math.sqrt(4));\n    }\n}",
+      "code2": "class Main {\n   public static void main(String[] args) {\n       System.out.println(\"About to encounter a method.\");\n       // method call\n       myMethod();\n       System.out.println(\"Method was executed successfully!\");\n   }\n   // method definition\n   private static void myMethod(){\n       System.out.println(\"Printing from inside myMethod()!\");\n   }\n}",
+      "code3": "class SquareMain {\n    public static void main(String[] args) {\n        int result;\n        result = square(); \n        System.out.println(\"Squared value of 10 is: \" + result);\n    }\n          public static int square() {\n        // return statement\n        return 10 * 10;\n    }\n}",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "Constructor": [
+    {
+      "title1": "What is a Constructor?",
+      "title2": "No-Arg Constructor",
+      "title3": "Parameterized Constructor",
+      "title4": "",
+      "title5": "",
+      "exp1": "A constructor is similar to a method (but not actually a method) that is invoked automatically when an object is instantiated.\n\nJava compiler distinguish between a method and a constructor by its name and return type. In Java, a constructor has same name as that of the class, and doesn’t return any value.\n\nExample:",
+      "exp2": "If a Java constructor does not accept any parameters, it is a no-arg constructor. It's syntax is:\n\nExample:",
+      "exp3": "A constructor may also accept parameters. It's syntax is:\n\nExample:",
+      "exp4": "",
+      "exp5": "",
+      "code1": "class ConsMain {\n    private int x;\n    // constructor\n    private ConsMain(){\n        System.out.println(\"Constructor Called\");\n        x = 5;\n    }\n    public static void main(String[] args){\n        ConsMain obj = new ConsMain();\n        System.out.println(\"Value of x = \" + obj.x);\n    }\n}",
+      "code2": "class NoArgCtor {\n    int i;\n    // constructor with no parameter\n    private NoArgCtor(){\n        i = 5;\n        System.out.println(\"Object created and i = \" + i);\n    }\n    public static void main(String[] args) {\n        NoArgCtor obj = new NoArgCtor();\n    }\n}",
+      "code3": "class Vehicle {\n    int wheels;\n    private Vehicle(int wheels){\n        wheels = wheels;\n        System.out.println(wheels + \" wheeler vehicle created.\");\n    }\n    public static void main(String[] args) {\n        Vehicle v1 = new Vehicle(2);\n        Vehicle v2 = new Vehicle(3);\n        Vehicle v3 = new Vehicle(4);\n    }\n}",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "Method Overloading": [
+    {
+      "title1": "Java Method Overloading",
+      "title2": "Overloading by changing number of arguments",
+      "title3": "By changing the datatype of parameters",
+      "title4": "",
+      "title5": "",
+      "exp1": "Overloading allows different methods to have the same name, but different signatures where the signature can differ by the number of input parameters or type of input parameters or both. Overloading is related to compile-time (or static) polymorphism.\n\nExample:",
+      "exp2": "Example:",
+      "exp3": "Example:",
+      "exp4": "",
+      "exp5": "",
+      "code1": "// Java program to demonstrate working of method \n// overloading in Java. \n  \npublic class Sum { \n  \n    // Overloaded sum(). This sum takes two int parameters \n    public int sum(int x, int y) \n    { \n        return (x + y); \n    } \n  \n    // Overloaded sum(). This sum takes three int parameters \n    public int sum(int x, int y, int z) \n    { \n        return (x + y + z); \n    } \n  \n    // Overloaded sum(). This sum takes two double parameters \n    public double sum(double x, double y) \n    { \n        return (x + y); \n    } \n  \n    // Driver code \n    public static void main(String args[]) \n    { \n        Sum s = new Sum(); \n        System.out.println(s.sum(10, 20)); \n        System.out.println(s.sum(10, 20, 30)); \n        System.out.println(s.sum(10.5, 20.5)); \n    } \n} ",
+      "code2": "class MethodOverloading {\n    private static void display(int a){\n        System.out.println(\"Arguments: \" + a);\n    }\n    private static void display(int a, int b){\n        System.out.println(\"Arguments: \" + a + \" and \" + b);\n    }\n    public static void main(String[] args) {\n        display(1);\n        display(1, 4);\n    }\n}",
+      "code3": "class MethodOverloading {\n    // this method accepts int\n    private static void display(int a){\n        System.out.println(\"Got Integer data.\");\n    }\n    // this method  accepts String object\n    private static void display(String a){\n        System.out.println(\"Got String object.\");\n    }\n    public static void main(String[] args) {\n        display(1);\n        display(\"Hello\");\n    }\n}",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "Constructor Overloading": [
+    {
+      "title1": "Constructors Overloading in Java",
+      "title2": "",
+      "title3": "",
+      "title4": "",
+      "title5": "",
+      "exp1": "Similar like method overloading, you can also overload constructors if two or more constructors are different in parameters.\n\nExample:",
+      "exp2": "",
+      "exp3": "",
+      "exp4": "",
+      "exp5": "",
+      "code1": "class Company {\n    String domainName;\n    public Company(){\n        this.domainName = \"default\";\n    }\n    public Company(String domainName){\n        this.domainName = domainName;\n    }\n    public void getName(){\n        System.out.println(this.domainName);\n    }\n    public static void main(String[] args) {\n        Company defaultObj = new Company();\n        Company programizObj = new Company(\"programiz.com\");\n        defaultObj.getName();\n        programizObj.getName();\n    }\n}",
+      "code2": "",
+      "code3": "",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "Access Modifiers": [
+    {
+      "title1": "Default Access Modifier",
+      "title2": "Private Access Modifier",
+      "title3": "Protected Access Modifier",
+      "title4": "",
+      "title5": "",
+      "exp1": "If the access modifier is not explicitly specified for a class, variable, method or constructor, then by default, it is assumed to be a default access modifier.\n\nExample:",
+      "exp2": "Only the methods and the data members can be declared as private, whereas classes or interfaces cannot be declared as private. However, inner-classes in the case of a nested class can be declared private. Recommended reading: Java Nested and Inner Class\n\nPrivate variables can be accessed outside the class, if public getter methods are present in the class.\n\nExample:",
+      "exp3": "Protected access modifier is accessible within same package as well as to classes that subclass your base class directly. Only the methods and the data members can be declared as protected, whereas classes or interfaces cannot be declared as protected.\n\nExample:",
+      "exp4": "",
+      "exp5": "",
+      "code1": "//Class Geeks is having Default access modifier \nclass Geek \n{ \n    void display() \n       { \n           System.out.println(\"Hello World!\"); \n       } \n}\n} ",
+      "code2": "public class Data {\n    private String name;\n    public String getName() {\n        return this.name;\n    }\n    public void setName(String name) {\n        this.format = name;\n    }\n}\npublic class Main {\n    Public static void main(String[] main){\n        Data d = new Data();\n        d.setName(“Programiz”);\n        System.out.println(d.getName());\n    }\n}",
+      "code3": "",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "this Keyword": [
+    {
+      "title1": "this Keyword",
+      "title2": "Using this in Constructor Overloading",
+      "title3": "Passing this as an Argument",
+      "title4": "",
+      "title5": "",
+      "exp1": "In Java, this refers to the current object inside methods or constructors. Let's take an example to prove it.\n\nExample:",
+      "exp2": "While working with constructor overloading, you may find it useful to invoke one constructor from another constructor. But, constructors can not be called explicitly. Hence, to accomplish this, you can use another form of this keyword this().\n\nExample:",
+      "exp3": "If you need to pass the current object as an argument to a method, you can use this.\n\nExample:",
+      "exp4": "",
+      "exp5": "",
+      "code1": "class MyClass {\n    int instVar;\n    MyClass(int instVar){\n        this.instVar = instVar;\n        System.out.println(\"this reference = \" + this);\n    }\n    public static void main(String[] args) {\n        MyClass obj = new MyClass(8);\n        System.out.println(\"object reference = \" + obj);\n    }\n}",
+      "code2": "class Complex {\n    private int a, b;\n    // parameterize constructor\n    private Complex( int i, int j ){\n        this.a = i;\n        this.b = j;\n    }\n    private Complex(int i){\n        this(i, i); // invokes Complex(int i, int j);\n    }\n    private Complex(){\n        this(0); // invokes Complex(int i);\n    }\n    @Override\n    public String toString(){\n        return this.a + \" + \" + this.b + \"i\";\n    }\n    public static void main( String[] args ) {\n        Complex c1 = new Complex(2, 3);\n        Complex c2 = new Complex(3);\n        Complex c3 = new Complex();\n        System.out.println(c1);\n        System.out.println(c2);\n        System.out.println(c3);\n    }\n}",
+      "code3": "class ThisExample {\n    int x;\n    int y;\n    ThisExample(int x, int y) {\n        this.x = x;\n        this.y = y;\n        System.out.println(\"Before passing this to addTwo() method:\");\n        System.out.println(\"x = \" + this.x + \", y = \" + this.y);\n        addTwo(this);\n        System.out.println(\"After passing this to addTwo() method:\");\n        System.out.println(\"x = \" + this.x + \", y = \" + this.y);\n    }\n    void addTwo(ThisExample o){\n        o.x += 2;\n        o.y += 2;\n    }\n}\nclass Demo {\n    public static void main( String[] args ) {\n        ThisExample obj = new ThisExample(1, -2);\n    }\n}",
+      "code4": "",
+      "code5": ""
+    }
+  ],
+  "Access Modifiers2": [
+    {
+      "title1": "",
+      "title2": "",
+      "title3": "",
+      "title4": "",
+      "title5": "",
+      "exp1": "",
+      "exp2": "",
+      "exp3": "",
+      "exp4": "",
+      "exp5": "",
+      "code1": "",
+      "code2": "",
+      "code3": "",
+      "code4": "",
+      "code5": ""
+    }
+  ]
+}

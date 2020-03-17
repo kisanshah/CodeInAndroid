@@ -1,0 +1,20 @@
+{
+  "CountryDetail": [
+    {
+      "C_country": "India",
+      "C_sunrise": 1381107633,
+      "C_sunset": 1381149604
+    },
+    "weatherDetail",
+    {
+      "w_id": 711,
+      "w_main": "Smoke",
+      "w_description": "smoke"
+    },
+    "Tempdetail",
+    {
+      "t_temp": 304.15,
+      "t_pressure": 1009
+    }
+  ]
+}
