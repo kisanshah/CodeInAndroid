@@ -3,7 +3,6 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.example.codeinandroid.CodeModel" />
