@@ -1,7 +1,8 @@
-package com.example.codeinandroid;
+package com.example.codeinandroid.activity;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -14,16 +15,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.codeinandroid.CodeExec;
+import com.example.codeinandroid.R;
 import com.example.codeinandroid.databinding.ActivityCodeEditBinding;
+import com.example.codeinandroid.model.CodeModel;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.json.JSONException;
@@ -54,7 +57,14 @@ public class CodeEditActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.run:
-                getOutput(activityCodeEditBinding.editor.getText(), "java", "", output);
+//                getOutput2(activityCodeEditBinding.editor.getText(), "java", "", output);
+                CodeExec codeExec = new CodeExec(getApplicationContext(), output, "c", "#include <stdio.h>\n" +
+                        "\n" +
+                        "int main()\n" +
+                        "{\n" +
+                        "    printf(\"Hello, World!\\n\");\n" +
+                        "    return 0;\n" +
+                        "}", "", "gcc -o main *.c", "main", "main.c");
                 return true;
             case R.id.Item1:
                 Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show();
@@ -76,18 +86,18 @@ public class CodeEditActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         createBottomSheet();
         Bundle intent = getIntent().getExtras();
+        assert intent != null;
         String code = intent.getString("code");
         codeModel = new CodeModel(code, "swift");
         activityCodeEditBinding = DataBindingUtil.setContentView(this, R.layout.activity_code_edit);
         activityCodeEditBinding.setViewModel(codeModel);
 
         activityCodeEditBinding.setLifecycleOwner(this);
-
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void getOutput(String code, String lang, String input, TextView view) {
         //parameter to local variable
-        final String Lang = lang;
         final String Code = code;
         final String Input = input;
 
@@ -99,23 +109,14 @@ public class CodeEditActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         String URL = "https://tpcg.tutorialspoint.com/tpcg.php";
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-
-
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onResponse(String response) {
-                progressDialog.dismiss();
-                output.setText(Html.fromHtml(response, Html.FROM_HTML_MODE_LEGACY));
-                bottomSheetDialog.show();
-                Toast.makeText(CodeEditActivity.this, "" + response, Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "Check internet connection", Toast.LENGTH_LONG).show();
-            }
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, response -> {
+            progressDialog.dismiss();
+            output.setText(Html.fromHtml(response, Html.FROM_HTML_MODE_LEGACY));
+            bottomSheetDialog.show();
+            Toast.makeText(CodeEditActivity.this, "" + response, Toast.LENGTH_SHORT).show();
+        }, error -> {
+            progressDialog.dismiss();
+            Toast.makeText(getApplicationContext(), "Check internet connection", Toast.LENGTH_LONG).show();
         }) {
             @Override
             protected Map<String, String> getParams() {
@@ -152,35 +153,27 @@ public class CodeEditActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         String URL = "https://ide.geeksforgeeks.org/main.php";
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onResponse(String response) {
-                try {
-                    progressDialog.dismiss();
-                    JSONObject jsonObject = new JSONObject(response);
-                    String op = jsonObject.getString("rntError");
-                    if (op.isEmpty()) {
-                        op = jsonObject.getString("output");
-                        view.setText("Output:\n" + op);
-                        Toast.makeText(CodeEditActivity.this, "" + op, Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(CodeEditActivity.this, "" + op, Toast.LENGTH_SHORT).show();
-                        view.setText("Output:\n" + op);
-                    }
-//                    Toast.makeText(CodeViewActivity.this, "OUTPUT" + op, Toast.LENGTH_SHORT).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    progressDialog.dismiss();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, response -> {
+            try {
+                progressDialog.dismiss();
+                JSONObject jsonObject = new JSONObject(response);
+                String op = jsonObject.getString("rntError");
+                if (op.isEmpty()) {
+                    op = jsonObject.getString("output");
+                    view.setText("Output:\n" + op);
+                    Toast.makeText(CodeEditActivity.this, "" + op, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CodeEditActivity.this, "" + op, Toast.LENGTH_SHORT).show();
+                    view.setText("Output:\n" + op);
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                progressDialog.dismiss();
+            }
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(CodeEditActivity.this, "Error : " + error, Toast.LENGTH_LONG).show();
-                view.setText(error.toString());
-            }
+        }, error -> {
+            Toast.makeText(CodeEditActivity.this, "Error : " + error, Toast.LENGTH_LONG).show();
+            view.setText(error.toString());
         }) {
             @Override
             protected Map<String, String> getParams() {
@@ -213,7 +206,7 @@ public class CodeEditActivity extends AppCompatActivity {
 
     private void createBottomSheet() {
         if (bottomSheetDialog == null) {
-            View view = LayoutInflater.from(this).inflate(R.layout.output_sheet, null);
+            @SuppressLint("InflateParams") View view = LayoutInflater.from(this).inflate(R.layout.output_sheet, null);
             output = view.findViewById(R.id.Output);
             bottomSheetDialog = new BottomSheetDialog(this);
             bottomSheetDialog.setContentView(view);

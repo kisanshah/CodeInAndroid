@@ -12,7 +12,6 @@
         android:background="@color/backgroundcolor"
         android:fontFamily="@font/regular"
         android:padding="8dp"
-        android:text="This will be displayed"
         android:textSize="18sp" />
 
     <View

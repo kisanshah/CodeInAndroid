@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CodeInAndroid</string>
+    <string name="todo">TODO</string>
+    <string name="cpp">Cpp</string>
+    <string name="c">C</string>
+    <string name="java">Java</string>
+    <string name="python">Python</string>
+    <string name="javascript">JavaScript</string>
+    <string name="r">R</string>
 </resources>

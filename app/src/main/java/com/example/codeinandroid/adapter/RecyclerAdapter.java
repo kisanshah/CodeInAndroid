@@ -1,4 +1,4 @@
-package com.example.codeinandroid;
+package com.example.codeinandroid.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,18 +9,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.codeinandroid.R;
+import com.example.codeinandroid.RecyclerViewInterface;
+import com.example.codeinandroid.model.Data;
+
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<Data> mData;
-    private Context context;
     private RecyclerViewInterface recyclerViewInterface;
     private int header = 0;
 
     public RecyclerAdapter(ArrayList<Data> mData, Context context, RecyclerViewInterface recyclerViewInterface) {
         this.mData = mData;
-        this.context = context;
         this.recyclerViewInterface = recyclerViewInterface;
     }
 
@@ -66,23 +68,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public class item extends RecyclerView.ViewHolder {
         TextView title;
 
-        public item(@NonNull final View itemView) {
+        item(@NonNull final View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.title);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    recyclerViewInterface.OnClick(getAdapterPosition(), itemView, mData.get(getAdapterPosition()).getTitle());
-                }
-            });
+            itemView.setOnClickListener(v -> recyclerViewInterface.OnClick(getAdapterPosition(), itemView, mData.get(getAdapterPosition()).getTitle()));
         }
     }
 
     public class header extends RecyclerView.ViewHolder {
         TextView title;
 
-        public header(@NonNull View itemView) {
+        header(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
 

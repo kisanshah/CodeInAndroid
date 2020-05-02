@@ -1,6 +1,8 @@
 {
   "if-else": [
     {
+      "tableTitle": "Integer Types",
+      "tableExp": "The following table provides the details of standard integer types with their storage sizes and value ranges −",
       "title1": "Java if Statement\n",
       "title2": "Java if-else Statement\n",
       "title3": "Java if-else-if ladder Statement\n",
@@ -15,11 +17,71 @@
       "exp4": "The nested if statement represents the if block within another if block. Here, the inner if block condition executes only when outer if block condition is true.\n\nExample:",
       "code4": "//Java Program to demonstrate the use of Nested If Statement.  \npublic class JavaNestedIfExample {    \npublic static void main(String[] args) {    \n    //Creating two variables for age and weight  \n    int age=20;  \n    int weight=80;    \n    //applying condition on age and weight  \n    if(age>=18){    \n        if(weight>50){  \n            System.out.println(\"You are eligible to donate blood\");  \n        }    \n    }    \n}}  ",
       "exp5": "",
-      "code5": ""
+      "code5": "",
+      "column1": {
+        "value1": "DATA TYPE",
+        "value2": "short int\t",
+        "value3": "unsigned short int",
+        "value4": "unsigned int",
+        "value5": "int",
+        "value6": "long int",
+        "value7": "unsigned long int",
+        "value8": "long long int"
+      },
+      "column2": {
+        "value1": "DATA ",
+        "value2": "short int\t",
+        "value3": "unsigned short int",
+        "value4": "unsigned int",
+        "value5": "int",
+        "value6": "long int",
+        "value7": "unsigned long int",
+        "value8": "long long int"
+      },
+      "column3": {
+        "value1": "DATA ",
+        "value2": "short int\t",
+        "value3": "unsigned short int",
+        "value4": "unsigned int",
+        "value5": "int",
+        "value6": "long int",
+        "value7": "unsigned long int",
+        "value8": "long long int"
+      }
     }
   ],
   "switch": [
     {
+      "column1": {
+        "value1": "DATA TYPE",
+        "value2": "short int\t",
+        "value3": "unsigned short int",
+        "value4": "unsigned int",
+        "value5": "int",
+        "value6": "long int",
+        "value7": "unsigned long int",
+        "value8": "long long int"
+      },
+      "column2": {
+        "value1": "DATA ",
+        "value2": "short int\t",
+        "value3": "unsigned short int",
+        "value4": "unsigned int",
+        "value5": "int",
+        "value6": "long int",
+        "value7": "unsigned long int",
+        "value8": "long long int"
+      },
+      "column3": {
+        "value1": "DATA ",
+        "value2": "short int\t",
+        "value3": "unsigned short int",
+        "value4": "unsigned int",
+        "value5": "int",
+        "value6": "long int",
+        "value7": "unsigned long int",
+        "value8": "long long int"
+      },
       "title1": "Java Switch Statement\n",
       "exp1": "The Java switch statement executes one statement from multiple conditions. It is like if-else-if ladder statement. The switch statement works with byte, short, int, long, enum types, String and some wrapper types like Byte, Short, Int, and Long. Since Java 7, you can use strings in the switch statement.\n\nIn other words, the switch statement tests the equality of a variable against multiple values.\n\nExample:",
       "code1": "public class MyClass {\n  public static void main(String[] args) {\n    int day = 4;\n    switch (day) {\n      case 1:\n        System.out.println(\"Monday\");\n        break;\n      case 2:\n        System.out.println(\"Tuesday\");\n        break;\n      case 3:\n        System.out.println(\"Wednesday\");\n        break;\n      case 4:\n        System.out.println(\"Thursday\");\n        break;\n      case 5:\n        System.out.println(\"Friday\");\n        break;\n      case 6:\n        System.out.println(\"Saturday\");\n        break;\n      case 7:\n        System.out.println(\"Sunday\");\n        break;\n    }\n  }\n}\n",
@@ -27,6 +89,9 @@
       "exp2": "Nested-Switch statements refers to Switch statements inside of another Switch Statements.\n\nExample:",
       "code2": "\npublic class Main {\n\n  public static void main(String[] args) {\n    int i = 0;\n    switch (i) {\n    case 0:\n      int j = 1;\n      switch (j) {\n      case 0:\n        System.out.println(\"i is 0, j is 0\");\n        break;\n      case 1:\n        System.out.println(\"i is 0, j is 1\");\n        break;\n      default:\n        System.out.println(\"nested default case!!\");\n      }\n      break;\n    default:\n      System.out.println(\"No matching case found!!\");\n    }\n  }\n}",
       "exp3": "",
+      "title3": "",
+      "title4": "",
+      "title5": "",
       "code3": "",
       "exp4": "",
       "code4": "",

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.codeinandroid.CodeModel" />
+            type="com.example.codeinandroid.model.CodeModel" />
     </data>
 
     <LinearLayout

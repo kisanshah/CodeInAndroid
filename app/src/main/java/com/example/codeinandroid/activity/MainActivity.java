@@ -1,11 +1,14 @@
-package com.example.codeinandroid;
+package com.example.codeinandroid.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import com.example.codeinandroid.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,29 +36,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        Intent i;
+        Intent i = new Intent(this, CodeMenu.class);
+        String language;
         switch (v.getId()) {
             case R.id.c:
-                i = new Intent(getApplicationContext(), com.example.codeinandroid.C.class);
+                language = "C";
                 break;
             case R.id.cpp:
-                i = new Intent(getApplicationContext(), com.example.codeinandroid.Cpp.class);
+                language = "Cpp";
                 break;
             case R.id.java:
-                i = new Intent(getApplicationContext(), com.example.codeinandroid.Java.class);
+                language = "Java";
                 break;
             case R.id.python:
-                i = new Intent(getApplicationContext(), com.example.codeinandroid.Python.class);
+                language = "Python";
                 break;
             case R.id.JavaScript:
-                i = new Intent(getApplicationContext(), com.example.codeinandroid.JavaScript.class);
+                language = "JavaScript";
                 break;
             case R.id.r:
-                i = new Intent(getApplicationContext(), Rlang.class);
+                language = "R";
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + v.getId());
         }
+        Toast.makeText(this, "" + language, Toast.LENGTH_SHORT).show();
+        i.putExtra("language", language);
         startActivity(i);
     }
 }

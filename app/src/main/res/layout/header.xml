@@ -14,12 +14,6 @@
         android:layout_marginBottom="10dp"
         android:background="#e8eaf6"
         android:fontFamily="@font/bold"
-        android:text="This will be displayed"
-        android:textAlignment="center"
         android:textSize="20sp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.8dp"
-        android:background="@color/testcolorblue" />
 </LinearLayout>

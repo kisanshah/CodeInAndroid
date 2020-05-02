@@ -1,4 +1,4 @@
-package com.example.codeinandroid;
+package com.example.codeinandroid.model;
 
 public class Data {
     private String title;

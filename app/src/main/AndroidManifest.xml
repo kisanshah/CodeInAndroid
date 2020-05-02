@@ -7,21 +7,17 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CodeEditActivity"></activity>
-        <activity android:name=".CodeViewActivity"></activity>
-        <activity android:name=".Rlang" />
-        <activity android:name=".JavaScript" />
-        <activity android:name=".Java" />
-        <activity android:name=".Python" />
-        <activity android:name=".Cpp" />
-        <activity android:name=".C"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.CodeMenu" />
+        <activity android:name=".activity.CodeViewActivity" />
+        <activity android:name=".activity.CodeEditActivity" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
