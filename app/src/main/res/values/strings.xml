@@ -7,4 +7,13 @@
     <string name="python">Python</string>
     <string name="javascript">JavaScript</string>
     <string name="r">R</string>
+    <string name="setting">Setting</string>
+    <string name="about">About</string>
+    <string name="run">run</string>
+    <string name="input">Input</string>
+    <string name="open">Open</string>
+    <string name="save">Save</string>
+    <string name="save_as">Save as</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="output">OUTPUT :</string>
 </resources>

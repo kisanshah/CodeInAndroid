@@ -5,33 +5,54 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.codeinandroid.R;
+import com.example.codeinandroid.prefrences.SharedPref;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import java.util.Objects;
 
-    CardView C, Cpp, Java, Python, JavaScript, RLang;
+public class MainActivity extends MenuAppCompactActivity implements View.OnClickListener {
+
+    DrawerLayout drawer;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    private CardView C;
+    private CardView Cpp;
+    private CardView Java;
+    private CardView Python;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPref sharedPref = new SharedPref(this);
+        if (sharedPref.loadNightMode()) {
+            Toast.makeText(this, "" + "darkMode", Toast.LENGTH_SHORT).show();
+            setTheme(R.style.darkTheme);
+        } else {
+            setTheme(R.style.lightTheme);
+        }
         setContentView(R.layout.activity_main);
-
         C = findViewById(R.id.c);
         Cpp = findViewById(R.id.cpp);
         Java = findViewById(R.id.java);
         Python = findViewById(R.id.python);
-        JavaScript = findViewById(R.id.JavaScript);
-        RLang = findViewById(R.id.r);
+        //ActionBarToggle
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        drawer = findViewById(R.id.drawer);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, R.string.drawer_open, R.string.drawer_close);
+        drawer.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
 
         C.setOnClickListener(this);
-        JavaScript.setOnClickListener(this);
         Java.setOnClickListener(this);
         Python.setOnClickListener(this);
-        RLang.setOnClickListener(this);
         Cpp.setOnClickListener(this);
+
     }
 
     @Override
@@ -51,17 +72,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.python:
                 language = "Python";
                 break;
-            case R.id.JavaScript:
-                language = "JavaScript";
-                break;
-            case R.id.r:
-                language = "R";
-                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + v.getId());
         }
         Toast.makeText(this, "" + language, Toast.LENGTH_SHORT).show();
         i.putExtra("language", language);
         startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

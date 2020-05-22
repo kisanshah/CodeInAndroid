@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,9 +23,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.codeinandroid.CodeExec;
+import com.example.codeinandroid.CodeModel;
 import com.example.codeinandroid.R;
 import com.example.codeinandroid.databinding.ActivityCodeEditBinding;
-import com.example.codeinandroid.model.CodeModel;
+import com.example.codeinandroid.prefrences.SharedPref;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.json.JSONException;
@@ -38,12 +38,12 @@ import java.util.Map;
 import java.util.Objects;
 
 public class CodeEditActivity extends AppCompatActivity {
-    BottomSheetDialog bottomSheetDialog;
-    LinearLayout outPut;
-    TextView output;
-    ProgressDialog progressDialog;
+    String code;
+    private BottomSheetDialog bottomSheetDialog;
+    private TextView output;
     CodeModel codeModel;
     ActivityCodeEditBinding activityCodeEditBinding;
+    private ProgressDialog progressDialog;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,14 +57,7 @@ public class CodeEditActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.run:
-//                getOutput2(activityCodeEditBinding.editor.getText(), "java", "", output);
-                CodeExec codeExec = new CodeExec(getApplicationContext(), output, "c", "#include <stdio.h>\n" +
-                        "\n" +
-                        "int main()\n" +
-                        "{\n" +
-                        "    printf(\"Hello, World!\\n\");\n" +
-                        "    return 0;\n" +
-                        "}", "", "gcc -o main *.c", "main", "main.c");
+                new CodeExec(getApplicationContext(), output, "c", code, "", "gcc -o main *.c", "main", "main.c");
                 return true;
             case R.id.Item1:
                 Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show();
@@ -83,11 +76,20 @@ public class CodeEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPref sharedPref = new SharedPref(this);
+        if (sharedPref.loadNightMode()) {
+            Toast.makeText(this, "" + "darkMode", Toast.LENGTH_SHORT).show();
+            setTheme(R.style.darkTheme);
+        } else {
+            setTheme(R.style.lightTheme);
+        }
         progressDialog = new ProgressDialog(this);
         createBottomSheet();
+
         Bundle intent = getIntent().getExtras();
         assert intent != null;
-        String code = intent.getString("code");
+        code = String.valueOf(intent.get("code"));
+        System.out.println("OUTPUT" + code);
         codeModel = new CodeModel(code, "swift");
         activityCodeEditBinding = DataBindingUtil.setContentView(this, R.layout.activity_code_edit);
         activityCodeEditBinding.setViewModel(codeModel);
@@ -187,7 +189,7 @@ public class CodeEditActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    public boolean deleteCache(File dir) {
+    private boolean deleteCache(File dir) {
         if (dir != null && dir.isDirectory()) {
             String[] children = dir.list();
             for (int i = 0; i < Objects.requireNonNull(children).length; i++) {

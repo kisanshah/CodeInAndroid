@@ -65,7 +65,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return mData.size();
     }
 
-    public class item extends RecyclerView.ViewHolder {
+    class item extends RecyclerView.ViewHolder {
         TextView title;
 
         item(@NonNull final View itemView) {
@@ -76,7 +76,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-    public class header extends RecyclerView.ViewHolder {
+    class header extends RecyclerView.ViewHolder {
         TextView title;
 
         header(@NonNull View itemView) {
