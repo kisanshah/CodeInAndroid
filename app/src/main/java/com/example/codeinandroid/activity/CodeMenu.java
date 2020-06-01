@@ -17,7 +17,7 @@ import com.example.codeinandroid.prefrences.SharedPref;
 
 import java.util.ArrayList;
 
-public class CodeMenu extends MenuAppCompactActivity implements RecyclerViewInterface {
+public class CodeMenu extends BaseActivity implements RecyclerViewInterface {
     private RecyclerAdapter adapter;
     private ArrayList<Data> mData;
     private String language;
@@ -28,7 +28,6 @@ public class CodeMenu extends MenuAppCompactActivity implements RecyclerViewInte
         super.onCreate(savedInstanceState);
         SharedPref sharedPref = new SharedPref(this);
         if (sharedPref.loadNightMode()) {
-            Toast.makeText(this, "" + "darkMode", Toast.LENGTH_SHORT).show();
             setTheme(R.style.darkTheme);
         } else {
             setTheme(R.style.lightTheme);

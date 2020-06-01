@@ -86,8 +86,17 @@ public class MenuData {
                 mData.add(new Data("Strings", ""));
                 mData.add(new Data("Structures", "true"));
                 mData.add(new Data("Structures", ""));
-
-
+                mData.add(new Data("Structure and Function", ""));
+                mData.add(new Data("Pointers", "true"));
+                mData.add(new Data("Pointers", ""));
+                mData.add(new Data("Dereference", ""));
+                mData.add(new Data("Object-Oriented Programming", "true"));
+                mData.add(new Data("OOP", ""));
+                mData.add(new Data("Classes and Objects", ""));
+                mData.add(new Data("Constructors", ""));
+                mData.add(new Data("Constructor Overloading", ""));
+                mData.add(new Data("Destructor", ""));
+                mData.add(new Data("this Pointer", ""));
                 break;
             case "Java":
                 mData.clear();
@@ -109,6 +118,11 @@ public class MenuData {
                 mData.clear();
                 mData.add(new Data("Basic", "true"));
                 mData.add(new Data("Python Syntax", ""));
+                mData.add(new Data("Comments", ""));
+                mData.add(new Data("Variables", ""));
+                mData.add(new Data("Data Types", ""));
+                mData.add(new Data("Keywords", ""));
+                mData.add(new Data("Operators", ""));
                 mData.add(new Data("Python Flow Control", "true"));
                 mData.add(new Data("if...else", ""));
                 mData.add(new Data("while loop", ""));

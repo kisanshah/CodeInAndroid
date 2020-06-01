@@ -1,5 +1,7 @@
 package com.example.codeinandroid.model;
 
+import br.tiagohm.codeview.Theme;
+
 public class DataModel {
     private String type;
     private String data;
@@ -8,11 +10,18 @@ public class DataModel {
     private String column3;
     private int image;
 
+
+    private Theme theme;
+
     public DataModel(String type, String column1, String column2, String column3) {
         this.type = type;
         this.column1 = column1;
         this.column2 = column2;
         this.column3 = column3;
+    }
+
+    public DataModel(System type, Theme theme) {
+        this.theme = theme;
     }
 
     public DataModel(String type, String title) {
@@ -23,6 +32,10 @@ public class DataModel {
     public DataModel(String type, int image) {
         this.image = image;
         this.type = type;
+    }
+
+    public Theme getTheme() {
+        return theme;
     }
 
     public String getColumn1() {

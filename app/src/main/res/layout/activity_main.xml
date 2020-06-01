@@ -55,7 +55,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="@string/c"
                         android:textColor="?attr/textColor"
                         android:textSize="17sp"
@@ -97,7 +97,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="@string/cpp"
                         android:textColor="?attr/textColor"
                         android:textSize="17sp"
@@ -149,7 +149,7 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="@string/java"
                         android:textColor="?attr/textColor"
                         android:textSize="17sp"
@@ -191,7 +191,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="@string/python"
                         android:textColor="?attr/textColor"
                         android:textSize="17sp"

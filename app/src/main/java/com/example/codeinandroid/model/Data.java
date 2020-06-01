@@ -21,7 +21,4 @@ public class Data {
         return headerFlag;
     }
 
-    public void setHeadFlag(String headerFlag) {
-        this.headerFlag = headerFlag;
-    }
 }

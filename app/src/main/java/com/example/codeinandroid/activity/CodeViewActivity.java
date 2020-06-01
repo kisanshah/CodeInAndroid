@@ -3,6 +3,7 @@ package com.example.codeinandroid.activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,7 +17,7 @@ import com.google.common.collect.Multimap;
 
 import java.util.ArrayList;
 
-public class CodeViewActivity extends MenuAppCompactActivity {
+public class CodeViewActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private deleteAdapter adapter;
@@ -29,7 +30,6 @@ public class CodeViewActivity extends MenuAppCompactActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SharedPref sharedPref = new SharedPref(this);
         if (sharedPref.loadNightMode()) {
-            Toast.makeText(this, "" + "darkMode", Toast.LENGTH_SHORT).show();
             setTheme(R.style.darkTheme);
         } else {
             setTheme(R.style.lightTheme);

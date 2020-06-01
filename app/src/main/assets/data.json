@@ -697,13 +697,82 @@
       "topic": "Strings"
     },
     {
-      "title1": "Structure is a collection of variables of different data types under a single name. It is similar to a class in that, both holds a collection of data of different data types.\n\nSyntax :",
-      "code_not_exec2": "struct Person\n{\n    char name[50];\n    int age;\n    float salary;\n};\n",
-      "exp3": "Example :",
-      "code_exec4": "Live Demo\n#include <iostream>\n#include <cstring>\n \nusing namespace std;\n \nstruct Books {\n   char  title[50];\n   char  author[50];\n   char  subject[100];\n   int   book_id;\n};\n \nint main() {\n   struct Books Book1;        // Declare Book1 of type Book\n   struct Books Book2;        // Declare Book2 of type Book\n \n   // book 1 specification\n   strcpy( Book1.title, \"Learn C++ Programming\");\n   strcpy( Book1.author, \"Chand Miyan\"); \n   strcpy( Book1.subject, \"C++ Programming\");\n   Book1.book_id = 6495407;\n\n   // book 2 specification\n   strcpy( Book2.title, \"Telecom Billing\");\n   strcpy( Book2.author, \"Yakit Singha\");\n   strcpy( Book2.subject, \"Telecom\");\n   Book2.book_id = 6495700;\n \n   // Print Book1 info\n   cout << \"Book 1 title : \" << Book1.title <<endl;\n   cout << \"Book 1 author : \" << Book1.author <<endl;\n   cout << \"Book 1 subject : \" << Book1.subject <<endl;\n   cout << \"Book 1 id : \" << Book1.book_id <<endl;\n\n   // Print Book2 info\n   cout << \"Book 2 title : \" << Book2.title <<endl;\n   cout << \"Book 2 author : \" << Book2.author <<endl;\n   cout << \"Book 2 subject : \" << Book2.subject <<endl;\n   cout << \"Book 2 id : \" << Book2.book_id <<endl;\n\n   return 0;\n}\n",
+      "title1": "Structures",
+      "exp2": "Structure is a collection of variables of different data types under a single name. It is similar to a class in that, both holds a collection of data of different data types.\n\nSyntax :",
+      "code_not_exec3": "struct Person\n{\n    char name[50];\n    int age;\n    float salary;\n};\n",
+      "exp4": "Example :",
+      "code_exec5": "#include <iostream>\n#include <cstring>\n \nusing namespace std;\n \nstruct Books {\n   char  title[50];\n   char  author[50];\n   char  subject[100];\n   int   book_id;\n};\n \nint main() {\n   struct Books Book1;        // Declare Book1 of type Book\n   struct Books Book2;        // Declare Book2 of type Book\n \n   // book 1 specification\n   strcpy( Book1.title, \"Learn C++ Programming\");\n   strcpy( Book1.author, \"Chand Miyan\"); \n   strcpy( Book1.subject, \"C++ Programming\");\n   Book1.book_id = 6495407;\n\n   // book 2 specification\n   strcpy( Book2.title, \"Telecom Billing\");\n   strcpy( Book2.author, \"Yakit Singha\");\n   strcpy( Book2.subject, \"Telecom\");\n   Book2.book_id = 6495700;\n \n   // Print Book1 info\n   cout << \"Book 1 title : \" << Book1.title <<endl;\n   cout << \"Book 1 author : \" << Book1.author <<endl;\n   cout << \"Book 1 subject : \" << Book1.subject <<endl;\n   cout << \"Book 1 id : \" << Book1.book_id <<endl;\n\n   // Print Book2 info\n   cout << \"Book 2 title : \" << Book2.title <<endl;\n   cout << \"Book 2 author : \" << Book2.author <<endl;\n   cout << \"Book 2 subject : \" << Book2.subject <<endl;\n   cout << \"Book 2 id : \" << Book2.book_id <<endl;\n\n   return 0;\n}\n",
       "topic": "Structures"
     },
     {
+      "title1": "Structure and Function",
+      "exp2": "Structure variables can be passed to a function and returned in a similar way as normal arguments.\n\nExample :",
+      "code_exec3": "#include <iostream>\nusing namespace std;\n\nstruct Person\n{\n    char name[50];\n    int age;\n    float salary;\n};\n\nvoid displayData(Person);   // Function declaration\n\nint main()\n{\n    Person p;\n\n    cout << \"Enter Full name: \";\n    cin.get(p.name, 50);\n    cout << \"Enter age: \";\n    cin >> p.age;\n    cout << \"Enter salary: \";\n    cin >> p.salary;\n\n    // Function call with structure variable as an argument\n    displayData(p);\n\n    return 0;\n}\n\nvoid displayData(Person p)\n{\n    cout << \"\\nDisplaying Information.\" << endl;\n    cout << \"Name: \" << p.name << endl;\n    cout <<\"Age: \" << p.age << endl;\n    cout << \"Salary: \" << p.salary;\n}\n",
+      "topic": "Structure and Function"
+    },
+    {
+      "title1": "Pointers",
+      "exp2": "Pointers are powerful features of C++ that differentiates it from other programming languages like Java and Python.\n\nPointers are used in C++ program to access the memory and manipulate the address.\n\nSyntax :",
+      "code_exec3": "#include <iostream>\nusing namespace std;\n\nstruct Person\n{\n    char name[50];\n    int age;\n    float salary;\n};\n\nvoid displayData(Person);   // Function declaration\n\nint main()\n{\n    Person p;\n\n    cout << \"Enter Full name: \";\n    cin.get(p.name, 50);\n    cout << \"Enter age: \";\n    cin >> p.age;\n    cout << \"Enter salary: \";\n    cin >> p.salary;\n\n    // Function call with structure variable as an argument\n    displayData(p);\n\n    return 0;\n}\n\nvoid displayData(Person p)\n{\n    cout << \"\\nDisplaying Information.\" << endl;\n    cout << \"Name: \" << p.name << endl;\n    cout <<\"Age: \" << p.age << endl;\n    cout << \"Salary: \" << p.salary;\n}\n",
+      "code_not_exec3": "int *p;\n      OR,\nint* p;\n",
+      "exp4": "Example :",
+      "code_exec5": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n  string food = \"Pizza\";  // A string variable\n  string* ptr = &food;  // A pointer variable that stores the address of food\n\n  // Output the value of food\n  cout << food << \"\\n\";\n\n  // Output the memory address of food\n  cout << &food << \"\\n\";\n\n  // Output the memory address of food with the pointer\n  cout << ptr << \"\\n\";\n  return 0;\n}\n",
+      "topic": "Pointers"
+    },
+    {
+      "title1": "Get Memory Address and Value",
+      "exp2": "we used the pointer variable to get the memory address of a variable (used together with the & reference operator). However, you can also use the pointer to get the value of the variable, by using the * operator (the dereference operator)\n\nExample :",
+      "code_exec3": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n  string food = \"Pizza\";  // Variable declaration\n  string* ptr = &food;    // Pointer declaration\n\n  // Reference: Output the memory address of food with the pointer\n  cout << ptr << \"\\n\";\n\n  // Dereference: Output the value of food with the pointer\n  cout << *ptr << \"\\n\";\n  return 0;\n}\n",
+      "topic": "Dereference"
+    },
+    {
+      "title1": "What is OOP?",
+      "exp2": "OOP stands for Object-Oriented Programming.\n\nProcedural programming is about writing procedures or functions that perform operations on the data, while object-oriented programming is about creating objects that contain both data and functions.\n\nObject-oriented programming has several advantages over procedural programming:\n\n• OOP is faster and easier to execute\n• OOP provides a clear structure for the programs\n• OOP helps to keep the C++ code DRY \"Don't Repeat Yourself\", and makes the code easier to maintain, modify and debug\n• OOP makes it possible to create full reusable applications with less code and shorter development time",
+      "topic": "OOP"
+    },
+    {
+      "title": "Class",
+      "exp2": "Before you create an object in C++, you need to define a class.\n\nA class is a blueprint for the object.\n\nWe can think of class as a sketch (prototype) of a house. It contains all the details about the floors, doors, windows etc. Based on these descriptions we build the house. House is the object.\n\nAs, many houses can be made from the same description, we can create many objects from a class.\n\nSyntax :",
+      "code_not_exec3": "class MyClass {       // The class\n  public:             // Access specifier\n    int myNum;        // Attribute (int variable)\n    string myString;  // Attribute (string variable)\n};\n",
+      "exp4": "Example :",
+      "code_exec5": "class Test\n{\n    private:\n        int data1;\n        float data2;  \n\n    public:  \n        void function1()\n        {   data1 = 2;  } \n\n        float function2()\n        { \n            data2 = 3.5;\n            return data2;\n        }\n   };\n",
+      "title6": "Keywords: private and public",
+      "exp7": "You may have noticed two keywords: private and public in the above example.\n\nThe private keyword makes data and functions private. Private data and functions can be accessed only from inside the same class.\n\nThe public keyword makes data and functions public. Public data and functions can be accessed out of the class.",
+      "title8": "Objects",
+      "exp9": " Object is an entity that has state and behavior. Here, state means data and behavior means functionality.\n\n\nObject is a runtime entity, it is created at runtime.\n\nObject is an instance of a class. All the members of the class can be accessed through object.\n\nLet's see an example to create object of student class using s1 as the reference variable.\n\nSyntax :",
+      "code_not_exec10": "className objectVariableName;\n",
+      "exp11": "Example :",
+      "code_exec12": "// Program to illustrate the working of objects and class in C++ Programming\n#include <iostream>\nusing namespace std;\n\nclass Test\n{\n    private:\n        int data1;\n        float data2;\n\n    public:\n       \n       void insertIntegerData(int d)\n       {\n          data1 = d;\n          cout << \"Number: \" << data1;\n        }\n\n       float insertFloatData()\n       {\n           cout << \"\\nEnter data: \";\n           cin >> data2;\n           return data2;\n        }\n};\n\n int main()\n {\n      Test o1, o2;\n      float secondDataOfObject2;\n\n      o1.insertIntegerData(12);\n      secondDataOfObject2 = o2.insertFloatData();\n\n      cout << \"You entered \" << secondDataOfObject2;\n      return 0;\n }\n",
+      "topic": "Classes and Objects"
+    },
+    {
+      "title1": "Constructor",
+      "exp2": "In C++, constructor is a special method which is invoked automatically at the time of object creation. It is used to initialize the data members of new object generally. The constructor in C++ has the same name as class or structure.\n\nThere can be two types of constructors.\n\n• Default constructor\n• Parameterized constructor",
+      "title3": "Default constructor",
+      "exp4": "A constructor which has no argument is known as default constructor. It is invoked at the time of creating object.",
+      "code_exec5": "#include <iostream>  \nusing namespace std;  \nclass Employee  \n {  \n   public:  \n        Employee()    \n        {    \n            cout<<\"Default Constructor Invoked\"<<endl;    \n        }    \n};  \nint main(void)   \n{  \n    Employee e1; //creating an object of Employee   \n    Employee e2;   \n    return 0;  \n}  \n",
+      "title6": "Parameterized Constructor",
+      "exp7": "A constructor which has parameters is called parameterized constructor. It is used to provide different values to distinct objects.",
+      "code_exec8": "#include <iostream>\nusing namespace std;\n\nclass Car {        // The class\n  public:          // Access specifier\n    string brand;  // Attribute\n    string model;  // Attribute\n    int year;      // Attribute\n    Car(string x, string y, int z) {  // Constructor with parameters\n      brand = x;\n      model = y;\n      year = z;\n    }\n};\n\nint main() {\n  // Create Car objects and call the constructor with different values\n  Car carObj1(\"BMW\", \"X5\", 1999);\n  Car carObj2(\"Ford\", \"Mustang\", 1969);\n\n  // Print values\n  cout << carObj1.brand << \" \" << carObj1.model << \" \" << carObj1.year << \"\\n\";\n  cout << carObj2.brand << \" \" << carObj2.model << \" \" << carObj2.year << \"\\n\";\n  return 0;\n}\n",
+      "topic": "Constructors"
+    },
+    {
+      "title1": "Constructor Overloading",
+      "exp2": "Constructor can be overloaded in a similar way as function overloading.\n\nOverloaded constructors have the same name (name of the class) but different number of arguments.\n\nDepending upon the number and type of arguments passed, specific constructor is called.\n\nExample :",
+      "code_exec3": "// Source Code to demonstrate the working of overloaded constructors\n#include <iostream>\nusing namespace std;\n\nclass Area\n{\n    private:\n       int length;\n       int breadth;\n\n    public:\n       // Constructor with no arguments\n       Area(): length(5), breadth(2) { }\n\n       // Constructor with two arguments\n       Area(int l, int b): length(l), breadth(b){ }\n\n       void GetLength()\n       {\n           cout << \"Enter length and breadth respectively: \";\n           cin >> length >> breadth;\n       }\n\n       int AreaCalculation() {  return length * breadth;  }\n\n       void DisplayArea(int temp)\n       {\n           cout << \"Area: \" << temp << endl;\n       }\n};\n\nint main()\n{\n    Area A1, A2(2, 1);\n    int temp;\n\n    cout << \"Default Area when no argument is passed.\" << endl;\n    temp = A1.AreaCalculation();\n    A1.DisplayArea(temp);\n\n    cout << \"Area when (2,1) is passed as argument.\" << endl;\n    temp = A2.AreaCalculation();\n    A2.DisplayArea(temp);\n\n    return 0;\n}\n",
+      "topic": "Constructor Overloading"
+    },
+    {
+      "title1": "C++ Destructor",
+      "exp2": "\nnext →← prev\nC++ Destructor\nA destructor works opposite to constructor; it destructs the objects of classes. It can be defined only once in a class. Like constructors, it is invoked automatically.\n\nA destructor is defined like constructor. It must have same name as class. But it is prefixed with a tilde sign (~).\n\nExample :",
+      "code_exec3": "#include <iostream>  \nusing namespace std;  \nclass Employee  \n {  \n   public:  \n        Employee()    \n        {    \n            cout<<\"Constructor Invoked\"<<endl;    \n        }    \n        ~Employee()    \n        {    \n            cout<<\"Destructor Invoked\"<<endl;    \n        }  \n};  \nint main(void)   \n{  \n    Employee e1; //creating an object of Employee   \n    Employee e2; //creating an object of Employee  \n    return 0;  \n}  \n",
+      "topic": "Destructor"
+    },
+    {
+      "title1": "this Pointer",
+      "exp2": "In C++ programming, this is a keyword that refers to the current instance of the class. There can be 3 main usage of this keyword in C++.\n\n• It can be used to pass current object as a parameter to another method.\n• It can be used to refer current class instance variable.\n• It can be used to declare indexers.\n\nExample :",
+      "code_exec3": "#include <iostream>  \nusing namespace std;  \nclass Employee {  \n   public:  \n       int id; //data member (also instance variable)      \n       string name; //data member(also instance variable)  \n       float salary;  \n       Employee(int id, string name, float salary)    \n        {    \n             this->id = id;    \n            this->name = name;    \n            this->salary = salary;   \n        }    \n       void display()    \n        {    \n            cout<<id<<\"  \"<<name<<\"  \"<<salary<<endl;    \n        }    \n};  \nint main(void) {  \n    Employee e1 =Employee(101, \"Sonoo\", 890000); //creating an object of Employee   \n    Employee e2=Employee(102, \"Nakul\", 59000); //creating an object of Employee  \n    e1.display();    \n    e2.display();    \n    return 0;  \n}  \n",
+      "topic": "this Pointer"
     }
   ],
   "Java": [
@@ -803,6 +872,82 @@
       "exp11": "You have to use the same number of spaces in the same block of code, otherwise Python will give you an error:\n\nExample :",
       "code_exec12": "if 5 > 2:\n print(\"Five is greater than two!\")\n        print(\"Five is greater than two!\")\n",
       "topic": "Python Syntax"
+    },
+    {
+      "title1": "Python Comments",
+      "exp2": "Comments can be used to explain Python code.\nComments can be used to make the code more readable.\nComments can be used to prevent execution when testing code.\n\nPython supports two types of comments:\n",
+      "title3": "1) Single Line Comment:",
+      "exp4": "In case user wants to specify a single line comment, then comment must start with #\n\nExample :",
+      "code_exec5": "#This is a comment\nprint(\"Hello, World!\")\n",
+      "title6": "2) Multi Line Comment:",
+      "exp7": "Python does not really have a syntax for multi line comments.\nTo add a multiline comment you could insert a # for each line.\n\nExample :",
+      "code_exec8": "#This is a comment\n#written in\n#more than just one line\nprint(\"Hello, World!\")\n",
+      "topic": "Comments"
+    },
+    {
+      "title1": "Python Variables",
+      "exp2": "Variable is a name which is used to refer memory location. Variable also known as identifier and used to hold value.\n\nIn Python, we don't need to specify the type of variable because Python is a type infer language and smart enough to get variable type.\n\nVariable names can be a group of both letters and digits, but they have to begin with a letter or an underscore.\n\nExample :",
+      "code_exec3": "x = 5\ny = \"John\"\nprint(x)\nprint(y)\n",
+      "title4": "Assign Value to Multiple Variables",
+      "exp5": "Python allows you to assign values to multiple variables in one line.\n\nExample :",
+      "code_exec6": "x, y, z = \"Orange\", \"Banana\", \"Cherry\"\nprint(x)\nprint(y)\nprint(z)\n",
+      "exp7": "Assigning single value to multiple variables\n\nExample :",
+      "code_exec8": "x=y=z=50  \nprint(x)  \nprint(y)  \nprint(z)  \n",
+      "topic": "Variables"
+    },
+    {
+      "title1": "Data types in Python",
+      "exp2": "Every value in Python has a datatype. Since everything is an object in Python programming, data types are actually classes and variables are instance (object) of these classes.\n\nThere are various data types in Python. Some of the important types are listed below.",
+      "title3": "Python Numbers",
+      "exp4": "Integers, floating point numbers and complex numbers fall under Python numbers category. They are defined as int, float and complex classes in Python.\n\nWe can use the type() function to know which class a variable or a value belongs to. Similarly, the isinstance() function is used to check if an object belongs to a particular class.\n\nExample :",
+      "code_exec5": "a = 5\nprint(a, \"is of type\", type(a))\n\na = 2.0\nprint(a, \"is of type\", type(a))\n\na = 1+2j\nprint(a, \"is complex number?\", isinstance(1+2j,complex))\n",
+      "title6": "List",
+      "exp7": "A list is a collection which is ordered and changeable. In Python lists are written with square brackets.\n\nExample :",
+      "code_exec8": "a = [5,10,15,20,25,30,35,40]\n\n# a[2] = 15\nprint(\"a[2] = \", a[2])\n\n# a[0:3] = [5, 10, 15]\nprint(\"a[0:3] = \", a[0:3])\n\n# a[5:] = [30, 35, 40]\nprint(\"a[5:] = \", a[5:])\n",
+      "title9": "Tuple",
+      "exp10": "Tuple is an ordered sequence of items same as a list. The only difference is that tuples are immutable. Tuples once created cannot be modified.\n\nTuples are used to write-protect data and are usually faster than lists as they cannot change dynamically.\n\nExample :",
+      "code_exec11": "t = (5,'program', 1+3j)\n\n# t[1] = 'program'\nprint(\"t[1] = \", t[1])\n\n# t[0:3] = (5, 'program', (1+3j))\nprint(\"t[0:3] = \", t[0:3])\n\n# Generates error\n# Tuples are immutable\nt[0] = 10\n",
+      "title12": "Strings",
+      "exp13": "String is sequence of Unicode characters. We can use single quotes or double quotes to represent strings. Multi-line strings can be denoted using triple quotes, ''' or \"\"\".\n\nExample",
+      "code_exec14": "s = \"This is a string\"\nprint(s)\ns = '''A multiline\nstring'''\nprint(s)\n",
+      "title15": "Set",
+      "exp16": "Set is an unordered collection of unique items. Set is defined by values separated by comma inside braces { }. Items in a set are not ordered.\n\nExample",
+      "code_exec17": "a = {5,2,3,1,4}\n\n# printing set variable\nprint(\"a = \", a)\n\n# data type of variable a\nprint(type(a))\n",
+      "title18": "Dictionaries",
+      "exp19": "A dictionary is a collection which is unordered, changeable and indexed. In Python dictionaries are written with curly brackets, and they have keys and values.\n\nExample",
+      "code_exec20": "d = {1:'value','key':2}\nprint(type(d))\n\nprint(\"d[1] = \", d[1]);\n\nprint(\"d['key'] = \", d['key']);\n\n# Generates error\nprint(\"d[2] = \", d[2]);\n",
+      "topic": "Data Types"
+    },
+    {
+      "title1": "Keywords",
+      "exp2": "Python Keywords are special reserved words which convey a special meaning to the compiler/interpreter. Each keyword have a special meaning and a specific operation. These keywords can't be used as variable. Following is the List of Python Keywords.\n • True\t\u2022 False\t\u2022 None\t\u2022 and\t\u2022 as\u2022 asset\t\u2022 def\t\u2022 class\t\u2022 continue\t\u2022 break\u2022 else\t\u2022 finally\t\u2022 elif\t\u2022 del\t\u2022 except\u2022 global\t\u2022 for\t\u2022 if\t\u2022 from\t\u2022 import\u2022 raise\t\u2022 try\t\u2022 or\t\u2022 return\t\u2022 pass\u2022 nonlocal\t\u2022 in\t\u2022 not\t\u2022 is\t\u2022 lambda",
+      "topic": "Keywords"
+    },
+    {
+      "title1": "Operators",
+      "exp2": "Operators are used to perform operations on variables and values.\n\nPython divides the operators in the following groups:\n\n\u2022Arithmetic operators\n\u2022Assignment operators\n\u2022Comparison operators\n\u2022Logical operators\n\u2022Identity operators\n\u2022Membership operators\n\u2022Bitwise operators",
+      "title3": "Arithmetic Operators",
+      "exp4": "Arithmetic operators are used with numeric values to perform common mathematical operations.\n\nExample",
+      "code_exec5": "x = 15\ny = 4\n\n# Output: x + y = 19\nprint('x + y =',x+y)\n\n# Output: x - y = 11\nprint('x - y =',x-y)\n\n# Output: x * y = 60\nprint('x * y =',x*y)\n\n# Output: x / y = 3.75\nprint('x / y =',x/y)\n\n# Output: x // y = 3\nprint('x // y =',x//y)\n\n# Output: x ** y = 50625\nprint('x ** y =',x**y)\n",
+      "title6": "Assignment Operators",
+      "exp7": "Assignment operators are used to assign values to variables\n\nExample",
+      "code_exec8": "a = 21\nb = 10\nc = 0\n\nc = a + b\nprint \"Line 1 - Value of c is \", c\n\nc += a\nprint \"Line 2 - Value of c is \", c \n\nc *= a\nprint \"Line 3 - Value of c is \", c \n\nc /= a \nprint \"Line 4 - Value of c is \", c \n\nc  = 2\nc %= a\nprint \"Line 5 - Value of c is \", c\n\nc **= a\nprint \"Line 6 - Value of c is \", c\n\nc //= a\nprint \"Line 7 - Value of c is \", c\n",
+      "title9": "Comparison operators",
+      "exp10": "Comparison operators are used to compare values. It returns either True or False according to the condition.\n\nExample",
+      "code_exec11": "x = 10\ny = 12\n\n# Output: x > y is False\nprint('x > y is',x>y)\n\n# Output: x < y is True\nprint('x < y is',x<y)\n\n# Output: x == y is False\nprint('x == y is',x==y)\n\n# Output: x != y is True\nprint('x != y is',x!=y)\n\n# Output: x >= y is False\nprint('x >= y is',x>=y)\n\n# Output: x <= y is True\nprint('x <= y is',x<=y)\n",
+      "title12": "Logical Operators",
+      "exp13": "Logical operators are used to combine conditional statements:\n\nExample",
+      "code_exec14": "x = True\ny = False\n\nprint('x and y is',x and y)\n\nprint('x or y is',x or y)\n\nprint('not x is',not x)\n",
+      "title15": "Identity operators",
+      "exp16": "Identity operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location:\n\nExample",
+      "code_exec17": "x1 = 5\ny1 = 5\nx2 = 'Hello'\ny2 = 'Hello'\nx3 = [1,2,3]\ny3 = [1,2,3]\n\n# Output: False\nprint(x1 is not y1)\n\n# Output: True\nprint(x2 is y2)\n\n# Output: False\nprint(x3 is y3)\n",
+      "title18": "Membership operators",
+      "exp19": "in and not in are the membership operators in Python. They are used to test whether a value or variable is found in a sequence (string, list, tuple, set and dictionary).\n\nExample",
+      "code_exec20": "x = 'Hello world'\ny = {1:'a',2:'b'}\n\n# Output: True\nprint('H' in x)\n\n# Output: True\nprint('hello' not in x)\n\n# Output: True\nprint(1 in y)\n\n# Output: False\nprint('a' in y)\n",
+      "title21": "Bitwise operators",
+      "exp22": "Bitwise operators act on operands as if they were strings of binary digits. They operate bit by bit, hence the name.\n\nExample",
+      "code_exec23": "a = 60            # 60 = 0011 1100 \nb = 13            # 13 = 0000 1101 \nc = 0\n\nc = a & b;        # 12 = 0000 1100\nprint \"Line 1 - Value of c is \", c\n\nc = a | b;        # 61 = 0011 1101 \nprint \"Line 2 - Value of c is \", c\n\nc = a ^ b;        # 49 = 0011 0001\nprint \"Line 3 - Value of c is \", c\n\nc = ~a;           # -61 = 1100 0011\nprint \"Line 4 - Value of c is \", c\n\nc = a << 2;       # 240 = 1111 0000\nprint \"Line 5 - Value of c is \", c\n\nc = a >> 2;       # 15 = 0000 1111\nprint \"Line 6 - Value of c is \", c\n",
+      "topic": "Operators"
     },
     {
       "title1": "Python Conditions and If statements",

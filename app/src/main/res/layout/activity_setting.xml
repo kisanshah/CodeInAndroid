@@ -1,31 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical"
-    android:padding="5dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
     tools:context=".activity.Setting">
 
-    <RelativeLayout
+
+    <LinearLayout
+        android:id="@+id/RL1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginTop="20dp">
 
         <TextView
+            android:id="@+id/TV1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/raleway_semibold"
+            android:layout_weight="1"
+            android:fontFamily="@font/semi_bold"
             android:text="@string/dark_mode"
+            android:textColor="?attr/textColor"
             android:textSize="20sp" />
 
         <Switch
             android:id="@+id/themeToggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp" />
-    </RelativeLayout>
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TV2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/semi_bold"
+        android:text="@string/code_preview_setting"
+        android:textColor="?attr/textColor"
+        android:textSize="20sp" />
+
+
+    <LinearLayout
+        android:id="@+id/LL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/theme"
+            android:textColor="?attr/textColor"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+
+            style="@style/Widget.AppCompat.Spinner.DropDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LL3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/wrap_line"
+            android:textColor="?attr/textColor"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/wrapLineSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LL4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/zoom"
+            android:textColor="?attr/textColor"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/zoomSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <br.tiagohm.codeview.CodeView
+        android:id="@+id/codeView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        app:cv_font_size="14"
+        app:cv_highlight_line_number="36"
+        app:cv_show_line_number="true"
+        app:cv_start_line_number="0"
+        app:cv_wrap_line="true"
+        app:cv_zoom_enable="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/zoom"
+            android:textColor="?attr/textColor"
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
 </LinearLayout>

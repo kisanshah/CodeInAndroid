@@ -3,7 +3,7 @@
     <color name="colorPrimary">#FFC107</color>
     <color name="colorPrimaryDark">#FFA000</color>
 
-    <!--    light color-->
+    <!--    raleway_light color-->
     <color name="backgroundColor">#fcfcfc</color>
     <color name="cardBackgroundColor">#ffffff</color>
     <color name="textColor">#808080</color>

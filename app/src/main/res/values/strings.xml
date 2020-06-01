@@ -16,4 +16,14 @@
     <string name="save_as">Save as</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="output">OUTPUT :</string>
+    <string name="wrap_line">Wrap Line</string>
+    <string name="theme">Theme</string>
+    <string name="zoom">Zoom</string>
+    <string name="code_preview_setting">Code Preview Setting</string>
+    <string-array name="labels_array">
+        <item>Home1</item>
+        <item>Home2</item>
+        <item>Home3</item>
+        <item>Home4</item>
+    </string-array>
 </resources>

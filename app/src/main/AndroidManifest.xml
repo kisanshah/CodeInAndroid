@@ -14,13 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/lightTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activity.BaseActivity" />
+        <activity android:name=".activity.SplashScreen">
+
+        </activity>
         <activity android:name=".activity.Setting">
 
         </activity>
         <activity android:name=".activity.CodeMenu" />
-        <activity android:name=".activity.CodeViewActivity">
-
-        </activity>
+        <activity android:name=".activity.CodeViewActivity" />
         <activity android:name=".activity.CodeEditActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>

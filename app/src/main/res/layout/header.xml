@@ -12,7 +12,7 @@
         android:layout_margin="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/bold"
+        android:fontFamily="@font/raleway_extrabold"
         android:textColor="?attr/textColor"
         android:textSize="20sp" />
 

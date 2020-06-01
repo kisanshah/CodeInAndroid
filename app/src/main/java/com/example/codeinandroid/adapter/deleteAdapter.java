@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.codeinandroid.CodeExec;
 import com.example.codeinandroid.R;
 import com.example.codeinandroid.activity.CodeEditActivity;
 import com.example.codeinandroid.model.DataModel;
@@ -132,7 +132,13 @@ public class deleteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 });
-                ((codeExec) holder).run.setOnClickListener(v -> new CodeExec(context, ((codeExec) holder).output, "c", model.getData(), "", "gcc -o main *.c", "main", "main.c"));
+                ((codeExec) holder).run.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//                        PythonInterpreter pythonInterpreter = new PythonInterpreter();
+                        Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
                 break;
             case "CODE_NOT_EXEC":
