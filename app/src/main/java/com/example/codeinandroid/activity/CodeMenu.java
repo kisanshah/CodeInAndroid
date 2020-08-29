@@ -33,6 +33,9 @@ public class CodeMenu extends BaseActivity implements RecyclerViewInterface {
             setTheme(R.style.lightTheme);
         }
         setContentView(R.layout.activity_code_menu);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Bundle intent = getIntent().getExtras();
         assert intent != null;
         language = String.valueOf(intent.get("language"));

@@ -2,11 +2,10 @@ package com.example.codeinandroid.activity;
 
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.codeinandroid.R;
 import com.example.codeinandroid.adapter.deleteAdapter;
 import com.example.codeinandroid.data.Cdata;
@@ -24,9 +23,9 @@ public class CodeViewActivity extends AppCompatActivity {
     private ArrayList<DataModel> mData;
     private Multimap<String, Object> data;
     private Cdata c;
+    private DrawerLayout drawer;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         SharedPref sharedPref = new SharedPref(this);
         if (sharedPref.loadNightMode()) {
@@ -35,8 +34,11 @@ public class CodeViewActivity extends AppCompatActivity {
             setTheme(R.style.lightTheme);
         }
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_delete);
+
+
+        drawer = findViewById(R.id.drawerLayout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle intent = getIntent().getExtras();
         assert intent != null;
@@ -58,7 +60,7 @@ public class CodeViewActivity extends AppCompatActivity {
                 mData = c.create(topic, language);
                 break;
         }
-        adapter = new deleteAdapter(mData, getApplicationContext());
+        adapter = new deleteAdapter(mData, getApplicationContext(),language);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }

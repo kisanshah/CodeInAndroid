@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.codeinandroid.CodeExec;
 import com.example.codeinandroid.R;
 import com.example.codeinandroid.activity.CodeEditActivity;
 import com.example.codeinandroid.model.DataModel;
@@ -38,9 +39,11 @@ public class deleteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private ArrayList<DataModel> mData;
     private Context context;
     private SharedPref sharedPref;
+    private String language;
 
-    public deleteAdapter(ArrayList<DataModel> mData, Context context) {
+    public deleteAdapter(ArrayList<DataModel> mData, Context context, String language) {
         this.mData = mData;
+        this.language = language;
         this.context = context;
         sharedPref = new SharedPref(context);
     }
@@ -125,19 +128,19 @@ public class deleteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                         .setCode(model.getData()).setLanguage(Language.JAVA)
                         .setWrapLine(true).setShowLineNumber(true).setZoomEnabled(true).apply();
 
+                ((codeExec) holder).run.setOnClickListener(new View.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.N)
+                    @Override
+                    public void onClick(View v) {
+                        ExecuteCode(((codeExec) holder).output, model.getData(), "");
+                    }
+                });
                 ((codeExec) holder).edit.setOnClickListener(v -> {
                     Intent intent = new Intent(context, CodeEditActivity.class);
                     String s = model.getData();
                     intent.putExtra("code", model.getData());
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
-                });
-                ((codeExec) holder).run.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-//                        PythonInterpreter pythonInterpreter = new PythonInterpreter();
-                        Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
-                    }
                 });
 
                 break;
@@ -150,6 +153,25 @@ public class deleteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 break;
             default:
                 ((image) holder).image.setImageDrawable(context.getDrawable(model.getImage()));
+                break;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void ExecuteCode(TextView output, String code, String input) {
+        System.out.println(language);
+        switch (language) {
+            case "C":
+                new CodeExec(context, language.toLowerCase(), output, code, input, "c", "gcc -o main *.c", "main", "main.c");
+                break;
+            case "Java":
+                new CodeExec(context, language.toLowerCase(), output, code, input, "java", "javac", "java -Xmx128M -Xms16M", "HelloWorld.java");
+                break;
+            case "Python":
+                new CodeExec(context, "python3", output, code, input, "py", "0", "python3 main.py", "main.py");
+                break;
+            case "Cpp":
+                new CodeExec(context, "cpp", output, code, input, "cpp", "g++ -o main *.cpp", "main", "main.cpp");
                 break;
         }
     }

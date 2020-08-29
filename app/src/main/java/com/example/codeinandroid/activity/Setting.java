@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 
@@ -16,6 +17,7 @@ import com.example.codeinandroid.prefrences.SharedPref;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 import br.tiagohm.codeview.CodeView;
 import br.tiagohm.codeview.Language;
@@ -30,6 +32,7 @@ public class Setting extends AppCompatActivity implements AdapterView.OnItemClic
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         sharedPref = new SharedPref(this);
         setTitle("CodeInAndroid - Setting");
         if (sharedPref.loadNightMode()) {
@@ -39,6 +42,8 @@ public class Setting extends AppCompatActivity implements AdapterView.OnItemClic
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.recyclerView);
         themeToggle = findViewById(R.id.themeToggle);
@@ -86,11 +91,10 @@ public class Setting extends AppCompatActivity implements AdapterView.OnItemClic
         themeToggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 sharedPref.setNightMode(true);
-                restartApp();
             } else {
                 sharedPref.setNightMode(false);
-                restartApp();
             }
+            restartApp();
         });
     }
 
@@ -101,6 +105,11 @@ public class Setting extends AppCompatActivity implements AdapterView.OnItemClic
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         finish();
         startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     void CodeViewApply() {

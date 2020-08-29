@@ -14,23 +14,30 @@
         android:supportsRtl="true"
         android:theme="@style/lightTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.BaseActivity" />
-        <activity android:name=".activity.SplashScreen">
-
-        </activity>
-        <activity android:name=".activity.Setting">
-
-        </activity>
-        <activity android:name=".activity.CodeMenu" />
-        <activity android:name=".activity.CodeViewActivity" />
-        <activity android:name=".activity.CodeEditActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.YourCode" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".activity.BaseActivity" />
+        <activity android:name=".activity.SplashScreen" />
+        <activity
+            android:parentActivityName=".activity.MainActivity"
+            android:name=".activity.Setting"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity.CodeMenu"
+
+            android:parentActivityName=".activity.MainActivity" />
+        <activity android:name=".activity.CodeViewActivity" />
+        <activity
+            android:name=".activity.CodeEditActivity"
+            android:launchMode="singleTask" />
 
         <meta-data
             android:name="preloaded_fonts"
