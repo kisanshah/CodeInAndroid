@@ -4,40 +4,36 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SharedPref {
-
+    private Context context;
     private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     public SharedPref(Context context) {
-        sharedPreferences = context.getSharedPreferences("AppSetting", Context.MODE_PRIVATE);
+        this.context = context;
+
+        sharedPreferences = context.getSharedPreferences("MainActivity", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.putString("key", "value");
+        editor.putBoolean("key", false);
+        editor.putInt("key", 0);
+        editor.commit();
     }
 
-    public void setNightMode(Boolean state) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("NightMode", state);
-        editor.apply();
-    }
-
-    public Boolean loadNightMode() {
+    public boolean loadNightMode() {
         return sharedPreferences.getBoolean("NightMode", false);
     }
 
-    public void setWrapLine(Boolean state) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("WrapLine", state);
-        editor.apply();
+
+    public void setNightMode(boolean b) {
+        editor.putBoolean("NightMode", true);
+        editor.commit();
     }
 
-    public Boolean loadWrapLine() {
+    public boolean loadWrapLine() {
         return sharedPreferences.getBoolean("WrapLine", false);
     }
 
-    public void setZoom(Boolean state) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("Zoom", state);
-        editor.apply();
-    }
-
-    public Boolean loadZoom() {
+    public boolean loadZoom() {
         return sharedPreferences.getBoolean("Zoom", false);
     }
 }

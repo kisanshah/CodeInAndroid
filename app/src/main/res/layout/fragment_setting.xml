@@ -7,8 +7,7 @@
     android:background="?attr/backgroundColor"
     android:orientation="vertical"
     android:paddingStart="10dp"
-    android:paddingEnd="10dp"
-    tools:context=".activity.Setting">
+    android:paddingEnd="10dp">
 
 
     <LinearLayout
@@ -68,49 +67,30 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/LL3"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/filter_group"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:text="Zoom"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/wrap_line"
-            android:textColor="?attr/textColor"
-            android:textSize="20sp" />
+            android:layout_height="wrap_content" />
 
-        <Switch
-            android:id="@+id/wrapLineSwitch"
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:text="Wrap"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
+            android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:id="@+id/LL4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
-
-        <TextView
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/zoom"
-            android:textColor="?attr/textColor"
-            android:textSize="20sp" />
+            android:layout_height="wrap_content" />
+    </com.google.android.material.chip.ChipGroup>
 
-        <Switch
-            android:id="@+id/zoomSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
 
     <br.tiagohm.codeview.CodeView
         android:id="@+id/codeView"
@@ -124,25 +104,4 @@
         app:cv_wrap_line="true"
         app:cv_zoom_enable="true" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/zoom"
-            android:textColor="?attr/textColor"
-            android:textSize="20sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
-    </LinearLayout>
 </LinearLayout>

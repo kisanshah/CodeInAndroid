@@ -1,69 +1,84 @@
 package com.example.codeinandroid.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.Toast;
+import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.example.codeinandroid.R;
-import com.example.codeinandroid.prefrences.SharedPref;
+import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
-    private CardView C;
-    private CardView Cpp;
-    private CardView Java;
-    private CardView Python;
-    SharedPref sharedPref;
+import java.util.Objects;
+
+public class MainActivity extends BaseActivity {
+    ActionBarDrawerToggle toggle;
+    DrawerLayout drawer;
+    NavigationView navigationView;
+    NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        sharedPref = new SharedPref(this);
-        if (sharedPref.loadNightMode()) {
-            setTheme(R.style.darkTheme);
-        } else {
-            setTheme(R.style.lightTheme);
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        navigationView = findViewById(R.id.navigationView);
 
-        C = findViewById(R.id.c);
-        Cpp = findViewById(R.id.cpp);
-        Java = findViewById(R.id.java);
-        Python = findViewById(R.id.python);
+        navController = Navigation.findNavController(this, R.id.fragment);
 
+        navController.navigate(R.id.homeFragment);
+        navigationView.setCheckedItem(R.id.home);
 
-        C.setOnClickListener(this);
-        Java.setOnClickListener(this);
-        Python.setOnClickListener(this);
-        Cpp.setOnClickListener(this);
+        navigationView.setNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home:
+                    navController.navigate(R.id.homeFragment);
+                    onBackPressed();
+                    return true;
+                case R.id.yourProgram:
+                    navController.navigate(R.id.yourProgramFragment);
+                    onBackPressed();
+                    return true;
+                case R.id.setting:
+                    navController.navigate(R.id.settingFragment);
+                    onBackPressed();
+                    return true;
+                case R.id.codeEditor
+
+                        :
+                    navController.navigate(R.id.editorFragment);
+                    onBackPressed();
+                    return true;
+                default:
+                    return false;
+            }
+        });
+
+        drawer = findViewById(R.id.drawer);
+        toggle = new ActionBarDrawerToggle(this, drawer, R.string.about, R.string.app_name);
+        drawer.setDrawerListener(toggle);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        toggle.syncState();
+
     }
 
     @Override
-    public void onClick(View v) {
-        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(this, CodeMenu.class);
-        String language;
-        switch (v.getId()) {
-            case R.id.c:
-                language = "C";
-                break;
-            case R.id.cpp:
-                language = "Cpp";
-                break;
-            case R.id.java:
-                language = "Java";
-                break;
-            case R.id.python:
-                language = "Python";
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + v.getId());
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
         }
-        i.putExtra("language", language);
-        startActivity(i);
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isOpen()) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

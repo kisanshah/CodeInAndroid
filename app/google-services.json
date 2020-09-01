@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "984247300859",
+    "firebase_url": "https://codeinandroid-af871.firebaseio.com",
+    "project_id": "codeinandroid-af871",
+    "storage_bucket": "codeinandroid-af871.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984247300859:android:d1b5b1774f5617c409b65e",
+        "android_client_info": {
+          "package_name": "com.example.codeinandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984247300859-r3md8e9p4qi00d9ttdvrk3hvj970q5c5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC0XJLG3Ba_i9jq3vHwljTAWFGhcTJsoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "984247300859-r3md8e9p4qi00d9ttdvrk3hvj970q5c5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

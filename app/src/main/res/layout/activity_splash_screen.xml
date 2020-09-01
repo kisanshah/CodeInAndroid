@@ -27,7 +27,7 @@
             android:layout_height="200dp"
             android:layout_alignParentTop="true"
             android:contentDescription="@string/todo"
-            android:src="@drawable/logo2" />
+            android:src="@drawable/logo" />
 
         <TextView
             android:id="@+id/tv1"

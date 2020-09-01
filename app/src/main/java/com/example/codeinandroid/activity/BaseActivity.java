@@ -29,7 +29,6 @@ public class BaseActivity extends AppCompatActivity {
             case R.id.darkMode:
             case R.id.about:
             case R.id.Setting:
-                startActivity(new Intent(this, Setting.class));
                 return true;
             default:
                 return false;

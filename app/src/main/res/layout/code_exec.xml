@@ -19,28 +19,40 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/run"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="4dp"
             android:elevation="0dp"
-            android:src="@drawable/run"
-            app:fabSize="mini" />
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/run"
+            app:tint="@color/white" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/copy"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:src="@drawable/copy"
-            app:fabSize="mini" />
+            android:layout_margin="4dp"
+            android:elevation="0dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/copy"
+            app:tint="@color/white" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/edit"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:src="@drawable/edit"
-            app:fabSize="mini" />
+            android:layout_margin="4dp"
+            android:elevation="0dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/edit"
+            app:tint="@color/white" />
+
     </LinearLayout>
 
     <TextView

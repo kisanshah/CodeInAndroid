@@ -3,7 +3,6 @@ package com.example.codeinandroid.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,7 +38,6 @@ public class CodeMenu extends BaseActivity implements RecyclerViewInterface {
         Bundle intent = getIntent().getExtras();
         assert intent != null;
         language = String.valueOf(intent.get("language"));
-        Toast.makeText(this, "" + language, Toast.LENGTH_SHORT).show();
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         MenuData menuData = new MenuData(language);

@@ -7,32 +7,26 @@
 
     <application
         android:allowBackup="true"
-        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/lightTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.MainActivity"
-            android:launchMode="singleTask">
+        <activity android:name=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".activity.BaseActivity" />
+        <activity android:name=".activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.YourCode" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".activity.BaseActivity" />
-        <activity android:name=".activity.SplashScreen" />
-        <activity
-            android:parentActivityName=".activity.MainActivity"
-            android:name=".activity.Setting"
-            android:launchMode="singleTop" />
         <activity
             android:name=".activity.CodeMenu"
-
             android:parentActivityName=".activity.MainActivity" />
         <activity android:name=".activity.CodeViewActivity" />
         <activity

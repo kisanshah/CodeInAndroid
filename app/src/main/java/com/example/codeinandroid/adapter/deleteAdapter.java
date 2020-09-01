@@ -62,9 +62,7 @@ public class deleteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             case CODE_EXEC:
                 view = LayoutInflater.from(context).inflate(R.layout.code_exec, parent, false);
                 return new codeExec(view);
-            case TABLE:
-                view = LayoutInflater.from(context).inflate(R.layout.table_column, parent, false);
-                return new table(view);
+
             case CODE_NOT_EXEC:
                 view = LayoutInflater.from(context).inflate(R.layout.code_not_exec, parent, false);
                 return new codeNotExec(view);
@@ -116,11 +114,6 @@ public class deleteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 } else {
                     ((exp) holder).exp.setTextColor(context.getResources().getColor(R.color.textColor));
                 }
-                break;
-            case "TABLE":
-                ((table) holder).column1.setText(model.getColumn1());
-                ((table) holder).column2.setText(model.getColumn2());
-                ((table) holder).column3.setText(model.getColumn3());
                 break;
             case "CODE_EXEC":
                 ((codeExec) holder).code
@@ -232,18 +225,6 @@ public class deleteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         image(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
-        }
-    }
-
-    static class table extends RecyclerView.ViewHolder {
-        TextView column1, column2, column3;
-
-        table(@NonNull View itemView) {
-            super(itemView);
-
-            column1 = itemView.findViewById(R.id.column1);
-            column2 = itemView.findViewById(R.id.column2);
-            column3 = itemView.findViewById(R.id.column3);
         }
     }
 
